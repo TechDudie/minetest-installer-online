@@ -1,4 +1,4 @@
-# minetest-installer-online
+# minetest-installer-online(For Debian/Ubuntu and it branches)
 <i>an online installer for minetest(<b>will fetch latest release and compile from source</b>)</i>
 <h1>Instruction</h1>
 <li><p><b>Cd to Download folder by </b><code>cd ~/Downloads</code></p></li>
