@@ -5,4 +5,4 @@
 <li><p><b>Make file executable by </b><code>chmod +x ./minetest.py</code></p></li>
 <li><p><b>Run the script by </b><code>./minetest.py</code></p></li>
 
-<h3>This may take time depending on your system setup</h3>
+<h4>This may take time depending on your system setup</h4>
