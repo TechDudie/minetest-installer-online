@@ -2,7 +2,7 @@
 print("Checking OS...")
 import platform
 if not platform.release() == "Debian":
-	print("Incompatible OS, aborting...")
+    print("Incompatible OS, aborting...")
     exit()
 import os
 print("Initilizing Install Process...")
