@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-print("Checking OS...")
-import platform
-if not platform.release() == "Debian":
-    print("Incompatible OS, aborting...")
-    exit()
 import os
 print("Initilizing Install Process...")
 dependencies = [
