@@ -54,12 +54,26 @@ REDLIST_FILE = [
 ]
 
 
-class Main:
+class Main_file:
     def __init__(self):
         self.proc_in = [self.install_deps, self.getting_src]
         self.proc_out = []
-        self.process_launcher()
-        self.compiling_src()
+        self.initialize()
+
+    def initialize(self):
+        if os.path.isdir('./minetest/bin/'):
+            print(f'''Its seams minetest is already installed in this directory
+          Press enter to Overwrite or q to exit:''')
+            continue_input = input()
+            if continue_input == "":
+                os.system('rm -rf ./minetest')
+                self.process_launcher()
+                self.compiling_src()
+            if continue_input == "q":
+                exit()
+        elif not os.path.isdir('./minetest/bin/'):
+            self.process_launcher()
+            self.compiling_src()
 
     @staticmethod
     def install_deps():
@@ -96,5 +110,7 @@ class Main:
             proc.join()
 
 
-if "__main__" == __name__:
-    Main()
+
+if __name__ == '__main__':
+    start = Main_file()
+
