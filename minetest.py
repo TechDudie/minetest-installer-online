@@ -62,8 +62,7 @@ class Main_file:
 
     def initialize(self):
         if os.path.isdir('./minetest/bin/'):
-            print(f'''Its seams minetest is already installed in this directory
-          Press enter to Overwrite or q to exit:''')
+            print(f'It seems minetest is already installed in this directory.\nPress enter to overwrite or q to exit: ')
             continue_input = input()
             if continue_input == "":
                 os.system('rm -rf ./minetest')
@@ -77,11 +76,11 @@ class Main_file:
 
     @staticmethod
     def install_deps():
-        print('Installing Dependencies...')
+        print('Installing Dependencies... ', end=".)
         for install in DEPENDENCIES:
-            print(f"Installing {install}")
+            print("=", end="")
             os.system(f"sudo apt-get install {install} -y >> install.log")
-
+        print(" Done.")
     @staticmethod
     def getting_src():
         print('Collecting Source Minetest...')
@@ -93,11 +92,13 @@ class Main_file:
     @staticmethod
     def compiling_src():
         os.chdir('./minetest')
-        print('Compiling Source....')
+        print('Compiling Source... ', end="")
         os.system('cmake . -DRUN_IN_PLACE=TRUE >> install.log && make -j$(nproc) >> install.log')
-        print('Finished Compiling')
+        print('Done.')
+        print('Removing unnessesary files... ', end = "")
         for file in REDLIST_FILE:
             os.system(f'rm -r {file}')
+        print("Done.")
 
 
     def process_launcher(self):
